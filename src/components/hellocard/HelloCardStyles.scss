@@ -1,0 +1,22 @@
+.hellocard {
+    padding: .5em .2em;
+    background: rgba(255, 255, 255, .3);
+    border: 3px solid #780303;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .izquierdo {
+        color: rebeccapurple;
+        flex-flow: column;
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .derecho {
+        color: #0347ad;
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+    }
+}
