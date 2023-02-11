@@ -6,7 +6,7 @@ function HomePage() {
         <div>
             <h1>Bienvenido a mi sitio personal</h1>
 
-            <HelloCard nombre="Alan" />
+            <HelloCard nombre="Alan Jimenez" />
         </div>
     )
 }
