@@ -10,6 +10,7 @@ function Header() {
             <Link to="/contact">Contacto</Link>
             <Link to="/portfolio">Portafolio</Link>
             <Link to="/projects">Proyectos</Link>
+            <Link to="/store">Tienda</Link>
         </header>
     )
 }
