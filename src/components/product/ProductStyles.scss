@@ -1,0 +1,46 @@
+.product-item {
+    margin: .5em;
+    border: 1px solid gray;
+    padding: 5px;
+
+    * {
+        display: flex;
+    }
+
+    .category {
+        color: gray;
+        font-size: small;
+        width: 100%;
+        display: block;
+    }
+
+    .description {
+        color: darkgray;
+        font-size: medium;
+    }
+
+    .id {
+        color: cadetblue;
+    }
+
+    .image {
+        max-width: 100px;
+        max-height: 100px;
+        display: block;
+    }
+
+    .price {
+        color: blue;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .rating {
+        color: darkgoldenrod;
+    }
+
+    .title {
+        font-weight: bold;
+        color: #352e2e;
+    }
+}
