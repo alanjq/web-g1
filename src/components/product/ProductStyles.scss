@@ -2,9 +2,11 @@
     margin: .5em;
     border: 1px solid gray;
     padding: 5px;
-    max-width: 300px;
-    display: flex;
 
+    // max-width: 300px;
+    *{
+    display: flex;
+    }
     .category {
         color: gray;
         font-size: small;
@@ -22,7 +24,8 @@
     }
 
     .image {
-        width: 50%;
+        max-width: 100px;
+        max-height: 100px;
         display: block;
     }
 
@@ -39,5 +42,18 @@
     .title {
         font-weight: bold;
         color: #352e2e;
+    }
+
+    .product-rating{
+        margin: .3em;
+        display: flex;
+        flex-direction: column;
+        
+        .stars{
+            display: flex;
+        }
+        .total{
+            display: flex;
+        }
     }
 }

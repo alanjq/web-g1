@@ -1,5 +1,6 @@
 import React from 'react';
-import './ProductStyles.scss'
+import './ProductStyles.scss';
+import ProductRating from './ProductRating';
 
 function Product({ category, description, id, image, price, rating, title }) {
     return (
@@ -10,7 +11,7 @@ function Product({ category, description, id, image, price, rating, title }) {
             <img className='image' src={image} width="100%" />
             <span className='description'>{description}</span>
             <span className='price'>{price}</span>
-            {/* TODO: Create component */}
+            <ProductRating rate={rating.rate} count={rating.count}/>
             {/* Params: rate, count */}
             {/* Eg. <Rating rate={rate} count={count} /> */}
         </article>
