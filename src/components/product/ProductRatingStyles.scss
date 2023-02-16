@@ -1,0 +1,13 @@
+.product-rating {
+    margin: .3em;
+    display: flex;
+    flex-direction: column;
+
+    .stars {
+        display: flex;
+    }
+
+    .total {
+        display: flex;
+    }
+}
