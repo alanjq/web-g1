@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './HeaderStyles.scss'
+import './HeaderStyles.scss';
 
 
 function Header() {
@@ -11,6 +11,10 @@ function Header() {
             <Link to="/portfolio">Portafolio</Link>
             <Link to="/projects">Proyectos</Link>
             <Link to="/store">Tienda</Link>
+            <span className="cart-dialog">
+                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            </span>
+            <Link to="/cart">Carrito</Link>
         </header>
     )
 }

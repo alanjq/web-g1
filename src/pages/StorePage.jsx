@@ -4,20 +4,32 @@ import './StoreStyles.scss'
 
 function StorePage() {
     const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         // Obtenemos la información de la API de productos
         fetch('https://fakestoreapi.com/products')
             .then(r => r.json())
-            .then((result) => setProducts(result))
+            .then((result) => {
+                // console.log(result);
+                setProducts(result)
+            })
             .catch((err) => {
                 console.error('API ERROR', err)
             })
     }, [])
 
+    // Cuando haya artículos
+    useEffect(() => {
+        if (products.length > 0) {
+            setIsLoading(false)
+        }
+    }, [products])
+
     return (
         <div>
             <h1>Tienda</h1>
+            {isLoading === true ? 'Cargando artículos...' : null}
             <div className='store-container'>
                 {products.map(({ category, description, id, image, price, rating, title }) =>
                     <Product key={id}
