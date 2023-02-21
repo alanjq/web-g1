@@ -1,16 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Product from '../components/product/Product';
 import { CartContext } from '../context/CartContext';
 
 function StoreCartPage() {
-    const context = useContext(CartContext)
-    const [productList, setProductList] = useState([])
-    // TODO: usar context para renderizar productos del carrito
+    const { cartProducts } = useContext(CartContext)
 
     return (
         <div>
             <h1>Carrito de compras</h1>
-            {productList.map((producto, index) =>
+
+            {cartProducts.map((producto, index) =>
                 <Product key={index}
                     category={producto.category}
                     description={producto.description}
