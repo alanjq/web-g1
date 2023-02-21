@@ -2,6 +2,17 @@
     margin: .5em;
     border: 1px solid gray;
     padding: 5px;
+    display: flex;
+    box-shadow: #dad1d1 5px 5px 10px;
+    border-radius: 5px;
+    grid-template-areas: "title category";
+
+    .title {
+        font-weight: bold;
+        color: #352e2e;
+        display: grid;
+        grid-area: title;
+    }
 
     * {
         display: flex;
@@ -39,8 +50,4 @@
         color: darkgoldenrod;
     }
 
-    .title {
-        font-weight: bold;
-        color: #352e2e;
-    }
 }
