@@ -5,7 +5,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartContext } from './context/CartContext';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
+import InfoPokePage from './pages/InfoPokePage';
 import LayoutPage from './pages/LayoutPage';
+import PokeHome from './pages/PokeHome';
+import PokeLayout from './pages/PokeLayout';
 import PortfolioPage from './pages/PortfolioPage';
 import ProjectPage from './pages/ProjectsPage';
 import StoreCartPage from './pages/StoreCartPage';
@@ -49,6 +52,15 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartContext.Provider>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/poke" element={<PokeLayout />}>
+            <Route index element={<PokeHome />} />
+            <Route path=":pokename" element={<InfoPokePage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

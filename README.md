@@ -7,3 +7,6 @@ https://fakestoreapi.com/docs
 
 # Iconos de Font Awesome
 https://fontawesome.com/v5/search?o=r&m=free&s=solid
+
+# API Poke API
+https://pokeapi.co
