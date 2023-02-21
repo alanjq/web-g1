@@ -1,49 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Product from '../components/product/Product';
-import './StoreStyles.scss'
+import { CartContext } from '../context/CartContext';
+import './StoreCartPageStyles.scss'
 
-function StorePage() {
-    const [products, setProducts] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-        // Obtenemos la información de la API de productos
-        fetch('https://fakestoreapi.com/products')
-            .then(r => r.json())
-            .then((result) => {
-                // console.log(result);
-                setProducts(result)
-            })
-            .catch((err) => {
-                console.error('API ERROR', err)
-            })
-    }, [])
-
-    // Cuando haya artículos
-    useEffect(() => {
-        if (products.length > 0) {
-            setIsLoading(false)
-        }
-    }, [products])
+function StoreCartPage() {
+    const { getProducts } = useContext(CartContext)
 
     return (
-        <div>
-            <h1>Tienda</h1>
-            {isLoading === true ? 'Cargando artículos...' : null}
-            <div className='store-container'>
-                {products.map(({ category, description, id, image, price, rating, title }) =>
-                    <Product key={id}
-                        category={category}
-                        description={description}
-                        id={id}
-                        image={image}
-                        price={price}
-                        rating={rating}
-                        title={title}
+        <div className='store-cart-page'>
+            <h1>Carrito de compras</h1>
+
+            {Array.isArray(getProducts()) && getProducts() === 0}
+
+            <div className="product-list">
+                {getProducts().map((producto, index) =>
+                    <Product key={index}
+                        category={producto.category}
+                        description={producto.description}
+                        id={producto.id}
+                        image={producto.image}
+                        price={producto.price}
+                        rating={producto.rating}
+                        title={producto.title}
                     />
                 )}
             </div>
         </div>
     )
 }
-export default StorePage
+export default StoreCartPage

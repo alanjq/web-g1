@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Product from '../components/product/Product';
 import './StoreStyles.scss'
 
+import React, { useEffect, useState } from 'react';
+import Product from '../components/product/Product';
+import './StoreStyles.scss'
+
 function StorePage() {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -47,4 +51,3 @@ function StorePage() {
     )
 }
 export default StorePage
-

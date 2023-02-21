@@ -2,6 +2,9 @@
 import React from 'react'
 
 export const CartContext = React.createContext({
-    items: [],
-    setItems: () => { }
+    cartProducts: [],
+    setCartProducts: () => {},
+    getProducts: () => [],
+    addProduct: () => {},
+    deleteProduct: () => {},
 })

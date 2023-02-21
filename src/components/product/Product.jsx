@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ProductStyles.scss'
 import ProductRating from './ProductRating'
+import { CartContext } from '../../context/CartContext';
+
 
 function Product({ category, description, id, image, price, rating, title }) {
-    // TODO: reusabilidad de componente
+    const context = useContext(CartContext)
+
     const handleAddItem = () => {
-        let itemToAdd = { category, description, id, image, price, rating, title }
-        console.log('Agregar el siguiente objeto al carrito', itemToAdd);
+        context.addProduct({ category, description, id, image, price, rating, title })
     }
 
     return (
@@ -18,7 +20,9 @@ function Product({ category, description, id, image, price, rating, title }) {
             <span className='description'>{description}</span>
             <span className='price'>{price}</span>
             <ProductRating rate={rating.rate} count={rating.count} />
+
             <button type='button' onClick={handleAddItem}>Agregar al carrito</button>
+            <button type='button' onClick={()=>context.deleteProduct(id)}>Eliminar del carrito</button>
         </article>
     )
 }
