@@ -22,7 +22,7 @@ function Product({ category, description, id, image, price, rating, title }) {
             <ProductRating rate={rating.rate} count={rating.count} />
 
             <button type='button' onClick={handleAddItem}>Agregar al carrito</button>
-            <button type='button'>Eliminar del carrito</button>
+            <button type='button' onClick={()=>context.deleteProduct(id)}>Eliminar del carrito</button>
         </article>
     )
 }

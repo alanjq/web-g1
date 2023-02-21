@@ -26,7 +26,9 @@ function App() {
   }
 
   const deleteProduct = () => {
-    console.log('delete product desde context');
+    let newlist = cartProducts
+
+    console.log('delete product desde context', newlist);
     // const idToDelete = 1
     // let currentlist = productList.filter(
     //     (obj) => obj.id !== idToDelete
