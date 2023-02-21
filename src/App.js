@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 
 // Pages
-import HomePage from './pages/HomePage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CartContext } from './context/CartContext';
 import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import LayoutPage from './pages/LayoutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ProjectPage from './pages/ProjectsPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LayoutPage from './pages/LayoutPage';
-import StorePage from './pages/StorePage';
 import StoreCartPage from './pages/StoreCartPage';
-import { CartContext } from './context/CartContext';
+import StorePage from './pages/StorePage';
+import { FromLocalStorage, ToLocalStorage } from './utils/localstorage'
 
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState(FromLocalStorage())
+  const getProducts = () => cartProducts || FromLocalStorage()
 
   // Agregar un producto al carrito
   const addProduct = (newproduct) => {
     let newlist = cartProducts
     newlist.push(newproduct)
     setCartProducts(newlist)
-    console.log('Lista de productos', newlist);
+    ToLocalStorage(newlist)
   }
 
   const deleteProduct = () => {
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <div>
-      <CartContext.Provider value={{ cartProducts, addProduct, deleteProduct }}>
+      <CartContext.Provider value={{ cartProducts, getProducts, addProduct, deleteProduct }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>
