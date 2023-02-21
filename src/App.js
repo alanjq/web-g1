@@ -25,15 +25,11 @@ function App() {
     ToLocalStorage(newlist)
   }
 
-  const deleteProduct = () => {
-    let newlist = cartProducts
-
-    console.log('delete product desde context', newlist);
-    // const idToDelete = 1
-    // let currentlist = productList.filter(
-    //     (obj) => obj.id !== idToDelete
-    // )
-    // console.log('NEW LIST', currentlist);
+  const deleteProduct = (id) => {
+    // Obtenemos los productos que no tengan el id que buscamos
+    let newlist = cartProducts.filter(producto => producto.id !== id)
+    // Asignamos el nuevo objeto al estado
+    setCartProducts(newlist)
   }
 
 
