@@ -13,18 +13,21 @@ import { CartContext } from './context/CartContext';
 
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState(FromLocalStorage())
+  const getProducts = () => cartProducts || FromLocalStorage()
 
   // Agregar un producto al carrito
   const addProduct = (newproduct) => {
     let newlist = cartProducts
     newlist.push(newproduct)
     setCartProducts(newlist)
-    console.log('Lista de productos', newlist);
+    ToLocalStorage(newlist)
   }
 
   const deleteProduct = () => {
-    console.log('delete product desde context');
+    let newlist = cartProducts.filter(producto=>producto.id !== id)
+    console.log('cartProducts', cartProducts);
+    console.log('id a elimianr', id);
     // const idToDelete = 1
     // let currentlist = productList.filter(
     //     (obj) => obj.id !== idToDelete
